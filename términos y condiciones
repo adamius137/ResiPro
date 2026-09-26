@@ -5,9 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Términos y Condiciones — ResiPro</title>
 <style>
-  :root {
-    color-scheme: light dark;
-  }
+  :root { color-scheme: light dark; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     max-width: 780px;
@@ -21,28 +19,26 @@
     body { color: #e8e8e8; background: #121212; }
     a { color: #7db8ff; }
     .callout { background: #1e2530; border-left-color: #4a7fc9; }
+    .warn { background: #2b1e1e; border-left-color: #c94a4a; }
     .pending { background: #2b241a; border-left-color: #c9974a; }
+    table { border-color: #333 !important; }
+    th, td { border-color: #333 !important; }
     hr { border-color: #333; }
   }
   h1 { font-size: 1.6rem; margin-top: 0; }
-  h2 { font-size: 1.2rem; margin-top: 2.2rem; border-bottom: 1px solid #ddd; padding-bottom: .3rem; }
-  h3 { font-size: 1.02rem; margin-top: 1.4rem; }
+  h2 { font-size: 1.25rem; margin-top: 2.4rem; border-bottom: 1px solid #ddd; padding-bottom: .3rem; }
+  h3 { font-size: 1.05rem; margin-top: 1.5rem; }
   .updated { color: #777; font-size: .9rem; margin-bottom: 2rem; }
-  .callout {
-    background: #eef4ff;
-    border-left: 4px solid #4a7fc9;
-    padding: .8rem 1rem;
-    margin: 1rem 0;
-    font-size: .95rem;
-  }
-  .pending {
-    background: #fff6e6;
-    border-left: 4px solid #c9974a;
-    padding: .8rem 1rem;
-    margin: 1rem 0;
-    font-size: .95rem;
-  }
-  ul { padding-left: 1.3rem; }
+  .toc { background: rgba(127,127,127,.08); border-radius: 8px; padding: 1rem 1.4rem; font-size: .92rem; margin-bottom: 2rem; }
+  .toc ol { padding-left: 1.2rem; margin: .4rem 0; }
+  .toc a { text-decoration: none; }
+  .callout { background: #eef4ff; border-left: 4px solid #4a7fc9; padding: .8rem 1rem; margin: 1rem 0; font-size: .95rem; }
+  .warn { background: #fdecec; border-left: 4px solid #c94a4a; padding: .8rem 1rem; margin: 1rem 0; font-size: .95rem; }
+  .pending { background: #fff6e6; border-left: 4px solid #c9974a; padding: .8rem 1rem; margin: 1rem 0; font-size: .95rem; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .92rem; }
+  th, td { border: 1px solid #ddd; padding: .5rem .6rem; text-align: left; vertical-align: top; }
+  th { background: rgba(127,127,127,.1); }
+  ul, ol.list { padding-left: 1.3rem; }
   code { font-size: .9em; background: rgba(127,127,127,.15); padding: .1em .3em; border-radius: 3px; }
 </style>
 </head>
@@ -52,60 +48,107 @@
   CHECKLIST ANTES DE PUBLICAR (borrar este comentario al terminar):
   [ ] Completar [RAZÓN SOCIAL / NOMBRE Y APELLIDO] y [CUIT] cuando definas monotributo vs. responsable inscripto
   [ ] Completar [EMAIL DE CONTACTO] cuando crees el mail del proyecto
-  [ ] Completar [CIUDAD] para la jurisdicción (dato: en principio Argentina, ciudad de residencia futura)
+  [ ] Completar [EMAIL DE REPORTE DE ERRORES] (puede ser el mismo mail de contacto)
+  [ ] Completar [CIUDAD] para la jurisdicción
   [ ] Completar [FECHA] de entrada en vigencia
-  [ ] CONFIRMAR licencia del examen de Provincia de Buenos Aires antes de publicar (ver nota en sección 6.2) —
-      no se encontró declaración general de licencia abierta para gba.gob.ar / ms.gba.gov.ar, a diferencia
-      de Nación y CABA que sí están confirmados. Si no conseguís confirmación, sacá esas preguntas del MVP.
+  [ ] El examen de Provincia de Buenos Aires sigue marcado como NO AUTORIZADO en la Sección 5.2:
+      la fuente (ms.gba.gov.ar) exhibe copyright estándar, sin licencia abierta. No subir ese
+      contenido a producción hasta conseguir autorización expresa por escrito del organismo emisor;
+      una vez conseguida, actualizar esa entrada con la fuente y los términos del permiso.
 -->
 
 <h1>Términos y Condiciones de Uso — ResiPro</h1>
 <p class="updated">Última actualización: [FECHA]</p>
 
 <div class="callout">
-Al descargar, instalar o usar ResiPro ("la Aplicación"), aceptás estos Términos y Condiciones en su totalidad. Si no estás de acuerdo, no debés usar la Aplicación.
+Al descargar, instalar, registrarte o usar ResiPro ("la Aplicación"), aceptás estos Términos y Condiciones en su totalidad. Si no estás de acuerdo con alguna parte, no debés usar la Aplicación.
 </div>
 
-<h2 id="alcance">1. Descripción del servicio</h2>
-<p>ResiPro es una aplicación móvil orientada a médicos, estudiantes de medicina y profesionales de la salud que se preparan para exámenes de ingreso a residencias médicas en Argentina (incluyendo, sin limitarse a, el Examen Único). La Aplicación ofrece contenido de estudio, incluyendo criterios médicos organizados por especialidad, un modo de repaso activo, y un banco de preguntas de exámenes de convocatorias anteriores.</p>
-<p>ResiPro es una herramienta de estudio y no garantiza, bajo ninguna circunstancia, la aprobación de ningún examen ni la obtención de una plaza de residencia.</p>
+<div class="toc">
+<strong>Índice</strong>
+<ol>
+  <li><a href="#objetivo">Objetivo y naturaleza de la Aplicación</a></li>
+  <li><a href="#funcionamiento">Cómo funciona la Aplicación</a></li>
+  <li><a href="#contenido">Qué contenido vas a encontrar</a></li>
+  <li><a href="#requisitos">Requisitos de acceso y cuenta</a></li>
+  <li><a href="#pi">Propiedad intelectual y fuentes del contenido</a></li>
+  <li><a href="#licencia">Licencia de uso y restricciones</a></li>
+  <li><a href="#planes">Planes, pagos y facturación</a></li>
+  <li><a href="#disclaimers">Alcances, límites y descargos de responsabilidad</a></li>
+  <li><a href="#errores">Reporte de errores</a></li>
+  <li><a href="#cuenta">Eliminación de cuenta</a></li>
+  <li><a href="#modificaciones">Modificaciones del servicio y de estos Términos</a></li>
+  <li><a href="#terminacion">Suspensión o terminación de cuenta</a></li>
+  <li><a href="#ley">Ley aplicable y jurisdicción</a></li>
+  <li><a href="#contacto">Contacto</a></li>
+</ol>
+</div>
 
-<h2 id="requisitos">2. Requisitos de acceso</h2>
+<h2 id="objetivo">1. Objetivo y naturaleza de la Aplicación</h2>
+<p>ResiPro es una herramienta educativa y de entrenamiento intensivo, diseñada específicamente para profesionales y estudiantes de medicina que se preparan para rendir el Examen Único de ingreso al Sistema de Residencias del Equipo de Salud en Argentina, en su modalidad nacional y en la correspondiente al Gobierno de la Ciudad Autónoma de Buenos Aires (CABA). Su propósito es facilitar el estudio, la autoevaluación y la familiarización con el formato de las pruebas oficiales, con el fin de optimizar el rendimiento académico del usuario.</p>
+<p>ResiPro no es, ni reemplaza a, un instituto educativo, una carrera de posgrado, ni un servicio de asesoramiento médico. Es exclusivamente una herramienta de apoyo al estudio.</p>
+
+<h2 id="funcionamiento">2. Cómo funciona la Aplicación</h2>
+<p>La Aplicación opera como un entorno de simulación interactiva. Su mecánica principal consiste en:</p>
+<ul>
+  <li><strong>Simulación de exámenes:</strong> el usuario interactúa con cuestionarios de opción múltiple, en formato equivalente al de los exámenes oficiales.</li>
+  <li><strong>Feedback inmediato:</strong> al seleccionar una opción, el sistema valida la respuesta contra la grilla de corrección oficial correspondiente a esa convocatoria.</li>
+  <li><strong>Refuerzo pedagógico:</strong> se despliega una fundamentación médica redactada para cada respuesta, explicando por qué la opción es correcta o incorrecta.</li>
+  <li><strong>Navegación temática:</strong> las preguntas y criterios están categorizados por especialidad médica (por ejemplo, Pediatría, Ginecología, Cirugía, Salud Pública, entre otras), permitiendo al usuario enfocar su estudio en áreas específicas.</li>
+  <li><strong>Métricas de desempeño:</strong> la Aplicación registra el resultado de cada ejercicio resuelto para mostrarte estadísticas de rendimiento según la especialidad, el año o los filtros que apliques.</li>
+</ul>
+
+<h2 id="contenido">3. Qué contenido vas a encontrar</h2>
+<p>El núcleo de la Aplicación es un banco de contenido estructurado que incluye, por cada ítem de evaluación:</p>
+<ul>
+  <li>Un identificador de año y jurisdicción de origen (por ejemplo: "CABA 2022", "Examen Único Nacional 2024").</li>
+  <li>La clasificación por especialidad médica.</li>
+  <li>El enunciado y, cuando corresponde, el caso clínico completo.</li>
+  <li>Las opciones de respuesta, equivalentes a las de la convocatoria original.</li>
+  <li>La respuesta considerada correcta según la grilla oficial de esa convocatoria.</li>
+  <li>Una justificación académica redactada para consolidar el conocimiento del usuario.</li>
+</ul>
+<p>Adicionalmente, la Aplicación incluye un módulo de criterios y scores médicos (por ejemplo, criterios de Ranson, Balthazar, y otros de uso habitual en la práctica clínica) organizados por especialidad, con un modo de estudio de revelación progresiva.</p>
+
+<h2 id="requisitos">4. Requisitos de acceso y cuenta</h2>
 <ul>
   <li>Debés tener 18 años o más para crear una cuenta y usar la Aplicación.</li>
-  <li>Debés proporcionar información veraz al registrarte (nombre y apellido, correo electrónico).</li>
+  <li>Debés proporcionar información veraz al registrarte (nombre, apellido y correo electrónico).</li>
   <li>Sos responsable de mantener la confidencialidad de tus credenciales de acceso y de toda actividad realizada desde tu cuenta.</li>
 </ul>
 
-<h2 id="licencia">3. Licencia de uso</h2>
+<h2 id="pi">5. Propiedad intelectual y fuentes del contenido</h2>
+
+<h3>5.1 Contenido propio</h3>
+<p>El diseño, la interfaz, el código fuente, la marca "ResiPro", el módulo de criterios médicos redactado a partir de bibliografía médica de acceso general y público, las justificaciones académicas de cada pregunta, y el modo de estudio, son propiedad de [RAZÓN SOCIAL / NOMBRE Y APELLIDO] o se usan bajo licencia, y están protegidos por la Ley 11.723 de Propiedad Intelectual de Argentina y los tratados internacionales aplicables.</p>
+
+<h3>5.2 Preguntas de exámenes de convocatorias anteriores</h3>
+<p>Las preguntas de exámenes de convocatorias anteriores incluidas en la Aplicación se reproducen sin modificaciones respecto del contenido publicado oficialmente por los siguientes organismos, bajo los siguientes términos:</p>
+<ul>
+  <li><strong>Examen Único (ámbito nacional):</strong> publicado por el Ministerio de Salud de la Nación en <a href="https://www.argentina.gob.ar" target="_blank" rel="noopener">argentina.gob.ar</a>, bajo licencia Creative Commons Atribución 4.0 Internacional (<a href="https://creativecommons.org/licenses/by/4.0/deed.es" target="_blank" rel="noopener">ver licencia</a>).</li>
+  <li><strong>Examen de la Ciudad Autónoma de Buenos Aires:</strong> publicado por el Gobierno de la Ciudad Autónoma de Buenos Aires en <a href="https://buenosaires.gob.ar" target="_blank" rel="noopener">buenosaires.gob.ar</a>, bajo licencia Creative Commons Atribución 2.5 Argentina (<a href="https://creativecommons.org/licenses/by/2.5/ar/legalcode.es" target="_blank" rel="noopener">ver licencia</a>).</li>
+  <li><strong>Examen de la Provincia de Buenos Aires:</strong> publicado por el Ministerio de Salud de la Provincia de Buenos Aires. <span class="warn">[NO INCLUIR SIN AUTORIZACIÓN EXPRESA: la fuente de publicación de este examen no declara una licencia de uso abierto — a diferencia de Nación y CABA, exhibe un aviso de copyright estándar sin excepción de reutilización. No incorporar preguntas de esta jurisdicción a la Aplicación hasta contar con permiso por escrito del organismo emisor.]</span></li>
+</ul>
+<p>Estas licencias permiten la reproducción y el uso comercial del material, incluso mediante obras derivadas, con la única condición de atribuir la fuente. En los casos habilitados, la Aplicación actúa como un vehículo tecnológico para la visualización interactiva de ese contenido, reproducido sin modificaciones respecto de la fuente oficial y con la atribución correspondiente. Un detalle completo de fuentes, años de convocatoria y licencias está disponible dentro de la Aplicación en Configuración → Fuente de preguntas.</p>
+
+<h3>5.3 Bibliografía de respaldo académico</h3>
+<p>Las justificaciones médicas elaboradas para cada pregunta y los criterios incluidos en la Aplicación se fundamentan en bibliografía de referencia de uso general en la formación médica (entre otros, Harrison — Principios de Medicina Interna, Nelson — Tratado de Pediatría, Farreras-Rozman, y textos de Salud Pública de referencia habitual) y en las Guías de Práctica Clínica Nacionales y normativa legal vigente en Argentina al momento de cada evaluación (por ejemplo, Ley 26.529 de Derechos del Paciente y Ley 27.610). Estos textos y normas se citan como fuente de referencia y respaldo académico: la Aplicación no reproduce pasajes textuales de dichas obras, sino contenido redactado de forma propia a partir del conocimiento médico que en ellas se recoge. Las disposiciones legales citadas, por su naturaleza de actos de autoridad competente, no están sujetas a derecho de autor conforme el artículo 1° de la Ley 11.723 y pueden citarse libremente.</p>
+
+<div class="callout">
+ResiPro es un producto independiente y no está afiliado, patrocinado, avalado ni respaldado por el Ministerio de Salud de la Nación, el Gobierno de la Ciudad Autónoma de Buenos Aires, ni por ningún organismo oficial vinculado a los procesos de ingreso a residencias médicas.
+</div>
+
+<h2 id="licencia">6. Licencia de uso y restricciones</h2>
 <p>Sujeto al cumplimiento de estos Términos y al pago correspondiente cuando aplique, se te otorga una licencia personal, no exclusiva, no transferible y revocable para usar la Aplicación en tus dispositivos personales, exclusivamente para tu estudio individual.</p>
 <p>No podés, salvo autorización expresa por escrito:</p>
 <ul>
-  <li>Copiar, redistribuir, revender, sublicenciar o poner a disposición de terceros el contenido de la Aplicación (preguntas, criterios, material de estudio o código).</li>
+  <li>Copiar, redistribuir, revender, sublicenciar o poner a disposición de terceros el contenido de la Aplicación (preguntas, criterios, justificaciones, material de estudio o código).</li>
   <li>Realizar capturas masivas, scraping o extracción automatizada del contenido.</li>
   <li>Realizar ingeniería inversa de la Aplicación, salvo en la medida en que la ley aplicable lo permita expresamente.</li>
   <li>Usar la Aplicación para desarrollar un producto o servicio competidor.</li>
 </ul>
 
-<h2 id="pi">4. Propiedad intelectual</h2>
-
-<h3>4.1 Contenido propio</h3>
-<p>El diseño, la interfaz, el código fuente, la marca "ResiPro", los criterios médicos redactados a partir de bibliografía médica de acceso público y general, y el modo de estudio son propiedad de [RAZÓN SOCIAL / NOMBRE Y APELLIDO] o se usan bajo licencia, y están protegidos por la Ley 11.723 de Propiedad Intelectual de Argentina y tratados internacionales aplicables.</p>
-
-<h3>4.2 Preguntas de exámenes de convocatorias anteriores</h3>
-<p>Las preguntas de exámenes correspondientes a convocatorias anteriores incluidas en la Aplicación provienen de fuentes oficiales publicadas por organismos de salud de Argentina, y se utilizan sin modificaciones respecto del contenido publicado por dichos organismos, en los siguientes términos:</p>
-<ul>
-  <li><strong>Examen Único (ámbito nacional):</strong> publicado por el Ministerio de Salud de la Nación en <a href="https://www.argentina.gob.ar" target="_blank" rel="noopener">argentina.gob.ar</a>, bajo licencia Creative Commons Atribución 4.0 Internacional (<a href="https://creativecommons.org/licenses/by/4.0/deed.es" target="_blank" rel="noopener">ver licencia</a>).</li>
-  <li><strong>Examen de la Ciudad Autónoma de Buenos Aires:</strong> publicado por el Gobierno de la Ciudad Autónoma de Buenos Aires en <a href="https://buenosaires.gob.ar" target="_blank" rel="noopener">buenosaires.gob.ar</a>, bajo licencia Creative Commons Atribución 2.5 Argentina (<a href="https://creativecommons.org/licenses/by/2.5/ar/legalcode.es" target="_blank" rel="noopener">ver licencia</a>).</li>
-  <li><strong>Examen de la Provincia de Buenos Aires:</strong> publicado por el Ministerio de Salud de la Provincia de Buenos Aires. <span class="pending">[PENDIENTE DE CONFIRMAR: verificar en la fuente puntual de publicación si existe una licencia de uso abierto equivalente a las anteriores, o gestionar autorización expresa, antes de incluir este contenido en una versión publicada de la Aplicación.]</span></li>
-</ul>
-<p>En todos los casos, el material se reproduce sin modificaciones respecto de la fuente oficial. Un detalle completo de fuentes, años de convocatoria y licencias correspondientes está disponible dentro de la Aplicación en Configuración → Fuente de preguntas.</p>
-
-<div class="callout">
-ResiPro es un producto independiente y no está afiliado, patrocinado, avalado ni respaldado por el Ministerio de Salud de la Nación, el Gobierno de la Ciudad Autónoma de Buenos Aires, el Ministerio de Salud de la Provincia de Buenos Aires, ni por ningún organismo oficial vinculado a los procesos de ingreso a residencias médicas.
-</div>
-
-<h2 id="planes">5. Planes, pagos y facturación</h2>
+<h2 id="planes">7. Planes, pagos y facturación</h2>
 <ul>
   <li>El acceso completo a la Aplicación se comercializa mediante un pago único que habilita el uso de las funciones correspondientes por un período de 12 (doce) meses desde la fecha de compra, sin renovación automática.</li>
   <li>Los pagos se procesan exclusivamente a través de los mecanismos de compra dentro de la aplicación (in-app purchase) de Apple App Store o Google Play, según el dispositivo utilizado. ResiPro no procesa ni almacena datos de tarjetas o medios de pago.</li>
@@ -113,25 +156,39 @@ ResiPro es un producto independiente y no está afiliado, patrocinado, avalado n
   <li>Se ofrece acceso gratuito limitado a una parte del contenido para que puedas evaluar la Aplicación antes de la compra.</li>
 </ul>
 
-<h2 id="disclaimer-medico">6. Descargo de responsabilidad sobre contenido médico</h2>
-<p>El contenido de ResiPro tiene fines exclusivamente educativos y de preparación para exámenes. No constituye asesoramiento médico, no debe usarse para tomar decisiones diagnósticas o terapéuticas sobre pacientes reales, y no reemplaza el criterio clínico individual, la formación médica continua ni la consulta de fuentes primarias actualizadas. El uso profesional de cualquier criterio o score mencionado en la Aplicación es responsabilidad exclusiva del usuario.</p>
+<h2 id="disclaimers">8. Alcances, límites y descargos de responsabilidad</h2>
 
-<h2 id="cuenta">7. Eliminación de cuenta</h2>
-<p>Podés eliminar tu cuenta y los datos asociados en cualquier momento desde Configuración → Eliminar cuenta, dentro de la propia Aplicación, sin necesidad de contactar a soporte.</p>
+<h3>8.1 Límite temporal de la información</h3>
+<p>Las respuestas consideradas correctas en la Aplicación reflejan estrictamente la grilla de corrección emitida por el comité evaluador en el año en que se tomó cada examen. La medicina es una ciencia dinámica: por lo tanto, ciertas respuestas pueden diferir de las normativas, estadísticas epidemiológicas o guías clínicas vigentes en la actualidad (por ejemplo, actualizaciones en esquemas de vacunación o algoritmos diagnósticos y terapéuticos posteriores al año de cada examen). El usuario debe interpretar el contenido en su contexto histórico y contrastarlo con las guías clínicas actualizadas para su práctica profesional.</p>
 
-<h2 id="modificaciones">8. Modificaciones del servicio y de estos Términos</h2>
-<p>Nos reservamos el derecho de modificar, suspender o discontinuar funciones de la Aplicación, así como de actualizar estos Términos. Los cambios sustanciales se notificarán dentro de la Aplicación o al correo electrónico registrado. El uso continuado de la Aplicación tras una modificación implica la aceptación de los nuevos Términos.</p>
+<h3>8.2 Herramienta de apoyo, no garantía de ingreso</h3>
+<p>El uso de la Aplicación no garantiza, bajo ninguna circunstancia, la aprobación del Examen Único ni la obtención de un cargo en el sistema de residencias médicas. Es un complemento de estudio y no reemplaza la lectura de la bibliografía oficial obligatoria ni la preparación integral que cada concurso exige.</p>
 
-<h2 id="responsabilidad">9. Limitación de responsabilidad</h2>
+<h3>8.3 Descargo de responsabilidad médica</h3>
+<p>La información contenida en la Aplicación tiene un fin exclusiva y estrictamente académico. No constituye asesoramiento médico, diagnóstico ni recomendación de tratamiento para pacientes reales, y no reemplaza el criterio clínico individual, la formación médica continua ni la consulta de fuentes primarias actualizadas. [RAZÓN SOCIAL / NOMBRE Y APELLIDO] no se responsabiliza por decisiones clínicas tomadas en la práctica médica real que se basen en el contenido de la Aplicación.</p>
+
+<h3>8.4 Posibilidad de errores</h3>
+<p>Aunque el banco de contenido se procesa con rigor metodológico, pueden existir errores de transcripción o discrepancias propias de los exámenes originales (incluyendo preguntas anuladas o con más de una respuesta válida según el organismo evaluador). La Sección 9 describe cómo reportarlos.</p>
+
+<h3>8.5 Limitación general de responsabilidad</h3>
 <p>La Aplicación se provee "tal cual" y "según disponibilidad". En la máxima medida permitida por la ley aplicable, no garantizamos que el contenido esté libre de errores, ni asumimos responsabilidad por el resultado obtenido por el usuario en ningún examen o proceso de admisión a residencias médicas.</p>
 
-<h2 id="terminacion">10. Suspensión o terminación de cuenta</h2>
-<p>Podemos suspender o cancelar tu acceso a la Aplicación en caso de incumplimiento de estos Términos, incluyendo el uso indebido del contenido protegido por propiedad intelectual descrito en la Sección 4.</p>
+<h2 id="errores">9. Reporte de errores</h2>
+<p>Si detectás una inconsistencia, un error de transcripción o una discrepancia entre una pregunta y su respuesta validada, podés reportarlo a <a href="mailto:[EMAIL DE REPORTE DE ERRORES]">[EMAIL DE REPORTE DE ERRORES]</a>. Revisamos los reportes recibidos y, cuando corresponde, corregimos el contenido en actualizaciones posteriores de la Aplicación.</p>
 
-<h2 id="ley">11. Ley aplicable y jurisdicción</h2>
+<h2 id="cuenta">10. Eliminación de cuenta</h2>
+<p>Podés eliminar tu cuenta y los datos asociados en cualquier momento desde Configuración → Eliminar cuenta, dentro de la propia Aplicación, sin necesidad de contactar a soporte.</p>
+
+<h2 id="modificaciones">11. Modificaciones del servicio y de estos Términos</h2>
+<p>Nos reservamos el derecho de modificar, suspender o discontinuar funciones de la Aplicación, así como de actualizar estos Términos. Los cambios sustanciales se notificarán dentro de la Aplicación o al correo electrónico registrado. El uso continuado de la Aplicación tras una modificación implica la aceptación de los nuevos Términos.</p>
+
+<h2 id="terminacion">12. Suspensión o terminación de cuenta</h2>
+<p>Podemos suspender o cancelar tu acceso a la Aplicación en caso de incumplimiento de estos Términos, incluyendo el uso indebido del contenido protegido por propiedad intelectual descrito en la Sección 5.</p>
+
+<h2 id="ley">13. Ley aplicable y jurisdicción</h2>
 <p>Estos Términos se rigen por las leyes de la República Argentina. Para cualquier controversia derivada de estos Términos, las partes se someten a los tribunales ordinarios competentes de [CIUDAD], Argentina, con renuncia expresa a cualquier otro fuero o jurisdicción.</p>
 
-<h2 id="contacto">12. Contacto</h2>
+<h2 id="contacto">14. Contacto</h2>
 <p>Ante consultas sobre estos Términos, podés escribir a <a href="mailto:[EMAIL DE CONTACTO]">[EMAIL DE CONTACTO]</a>.</p>
 
 </body>
